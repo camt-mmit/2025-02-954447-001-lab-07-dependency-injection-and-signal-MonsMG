@@ -1,0 +1,26 @@
+<header>
+  <span>
+    <button type="button" (click)="addSection()" class="app-cmp-button app-cl-filled">
+      <i class="material-symbols-outlined">library_add</i>
+      Section
+    </button>
+  </span>
+
+  <span class="-cl-float-right">
+    <span class="-cmp-sections-summary app-cl-number">({{ sections().length | number }})</span>
+  </span>
+</header>
+
+<ul class="-cmp-list">
+  @for (section of sections(); track section) {
+    <li>
+      <app-dynamic-input
+        [number]="$index + 1"
+        [section]="section"
+        [removable]="$count > 1"
+        (sectionChange)="changeSection($index, $event)"
+        (remove)="removeSection($index)"
+      />
+    </li>
+  }
+</ul>

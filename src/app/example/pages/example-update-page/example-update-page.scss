@@ -1,0 +1,27 @@
+@use '../../scss/common';
+
+:host {
+  @layer {
+    & {
+      --prop-max-width: 900px;
+      --prop-gap: 16px;
+    }
+  }
+
+  @include common.layout-block();
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1rem;
+  min-height: 100vh;
+}
+
+.-cmp-main-content {
+  @include common.layout-block();
+  @include common.card();
+  
+  width: min(var(--prop-max-width), 100%);
+  margin: 1rem auto;
+  overflow: hidden;
+}

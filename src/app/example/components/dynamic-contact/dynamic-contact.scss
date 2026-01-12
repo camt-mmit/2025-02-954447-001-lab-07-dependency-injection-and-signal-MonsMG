@@ -1,0 +1,87 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e5e7eb;
+  transition: all 0.2s ease;
+
+  &:hover {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    border-color: #d1d5db;
+  }
+
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #f3f4f6;
+
+    // Contact button wrapper
+    span:first-child {
+      display: flex;
+    }
+
+    // Add Contact Button - PRIMARY BLUE
+    button.app-cmp-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 0.5rem;
+      font-weight: 500;
+      font-size: 0.875rem;
+      cursor: pointer;
+      background-color: #eff6ff;
+      color: #2563eb;
+      transition: all 0.2s;
+      box-shadow: none;
+
+      &:hover {
+        background-color: #dbeafe;
+        color: #1d4ed8;
+      }
+
+      i {
+        font-size: 1.25rem;
+      }
+    }
+
+    // Summary Count
+    .-cmp-contacts-summary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.25rem 0.625rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      background: #f3f4f6;
+      color: #4b5563;
+    }
+  }
+
+  .-cl-float-right {
+    margin-left: auto;
+  }
+
+  ul.-cmp-list {
+    list-style: none !important;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    li {
+      list-style: none !important;
+      display: block;
+    }
+  }
+}

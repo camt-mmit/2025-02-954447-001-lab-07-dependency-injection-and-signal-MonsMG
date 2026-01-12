@@ -1,0 +1,58 @@
+<header>
+  <button type="button" (click)="addNumber()" class="app-cmp-button app-cl-filled -cmp-add-btn">
+    <i class="material-symbols-outlined">add</i>
+    Input
+  </button>
+  <div class="-cmp-section-info">
+    <b>
+      Section
+      @if (!numberIsNaN()) {
+        <span class="-cl-label-no app-cl-number">{{ number() | number }}</span>
+      }
+    </b>
+    <span class="-cmp-numbers-summary app-cl-number"
+      >({{ section().numbers.length | number }})</span
+    >
+  </div>
+  <button
+    type="button"
+    [disabled]="!removable()"
+    (click)="remove.emit()"
+    class="app-cmp-button app-cl-warn app-cl-filled"
+  >
+    <i class="material-symbols-outlined">delete_forever</i>
+  </button>
+</header>
+
+<ul class="-cmp-list">
+  @for (num of section().numbers; track num) {
+    <li>
+      <label>
+        <b>
+          Number
+          <span class="-cl-label-no app-cl-number">{{ $index + 1 | number }}</span>
+        </b>
+        <input
+          type="number"
+          #numElem
+          [value]="num.value"
+          (change)="changeNumber($index, numElem.value)"
+          class="app-cl-code"
+        />
+      </label>
+      <button
+        type="button"
+        [disabled]="$count === 1"
+        (click)="removeNumber($index)"
+        class="app-cmp-button app-cl-warn app-cl-filled"
+      >
+        <i class="material-symbols-outlined">delete_forever</i>
+      </button>
+    </li>
+  }
+</ul>
+
+<div class="-cmp-result">
+  <b>Result</b>
+  <span class="app-cl-number">{{ result() }}</span>
+</div>
