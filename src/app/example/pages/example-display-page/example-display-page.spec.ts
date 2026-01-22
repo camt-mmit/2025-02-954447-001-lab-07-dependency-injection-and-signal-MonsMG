@@ -1,3 +1,4 @@
+// --- Unit Test สำหรับ ExampleDisplayPage Component ---
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ExampleDisplayPage } from './example-display-page';
@@ -8,15 +9,15 @@ describe('ExampleDisplayPage', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ExampleDisplayPage]
-    })
-    .compileComponents();
+      imports: [ExampleDisplayPage],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(ExampleDisplayPage);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });
 
+  // ทดสอบว่า component สร้างได้สำเร็จ
   it('should create', () => {
     expect(component).toBeTruthy();
   });
